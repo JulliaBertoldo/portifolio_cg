@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio de Design Gráfico</title>
+    <style>
+        :root {
+            --bg-color: #f9f8f6;
+            --text-color: #2b2b2b;
+            --accent-color: #5c6b73;
+            --card-bg: #ffffff;
+            --purple-btn: #8a6db8;
+        }
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f0eae4, #e6ded7);
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+        .project-section {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            margin-top: 40px;
+        }
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .project-link {
+            color: inherit;
+            text-decoration: none;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .project-link:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+        .project-link:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 4px;
+        }
+        @media (min-width: 768px) {
+            .project-card { flex-direction: row; }
+            .project-card.reverse { flex-direction: row-reverse; }
+        }
+        .project-image-side {
+            flex: 1.2;
+            background-color: #f4f1eb;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .project-image-side img {
+            width: 100%;
+            height: 100%;
+            max-height: 450px;
+            object-fit: contain;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .project-text-side {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .project-text-side h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .project-text-side h2 a {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .project-text-side h2 a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        .project-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .link-bastidores {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+        }
+        .link-bastidores:hover {
+            text-decoration: underline;
+        }
+        .process-box {
+            background-color: #f4f1eb;
+            padding: 15px;
+            border-left: 4px solid var(--accent-color);
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        .categoria {
+            margin-top: 40px;
+            padding-bottom: 60px;
+        }
+        .categoria h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-color);
+            position: relative;
+        }
+        .categoria h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+        .cards-certificados {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        @media (min-width: 768px) {
+            .cards-certificados { 
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+        .certificado {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--accent-color);
+        }
+        .certificado img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-bottom: 1px solid #f0eae4;
+        }
+        .certificado h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin: 25px 30px 15px 30px;
+            color: var(--text-color);
+            min-height: 50px;
+            line-height: 1.3;
+        }
+        .certificado p {
+            font-size: 0.95rem;
+            color: #555;
+            margin: 10px 30px;
+            line-height: 1.5;
+        }
+        .certificado p strong {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .certificado a {
+            display: block;
+            background-color: var(--purple-btn);
+            color: #ffffff;
+            text-align: center;
+            padding: 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 30px 30px 30px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .certificado a:hover {
+            background-color: #765aa3;
+            text-decoration: none;
+        }
+        .certificado a:active {
+            transform: scale(0.98);
+        }
+        @media (max-width: 768px) {
+            .project-card { flex-direction: column; }
+            .project-image-side { min-height: 350px; }
+            .project-image-side img { max-height: 350px; }
+            header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Portfólio de Design Gráfico</h1>
+        <p>Curadoria de projetos focados em design editorial, identidade visual e desenho vetorial de alta fidelidade técnica.</p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">Projetos em Destaque</h2>
+        
+        <main class="project-section">
+
+            <!-- PROJETO 1 -->
+            <a class="project-card project-link" href="cheesecake.html" aria-label="Abrir estudo de caso: Receita de Cheesecake">
+                <div class="project-image-side">
+                    <img src="imagens/cheesecakedefrutasvermelhas.svg" alt="Layout da Receita de Cheesecake">
+                </div>
+                <div class="project-text-side">
+                    <span class="project-tag">Design Editorial / Alura</span>
+                    <h2>Página de Menu: Receita de Cheesecake</h2>
+                    <p><strong>Contexto:</strong> Desenvolvimento de uma peça de design editorial no formato de página de menu, unindo tipografia refinada e fotografia de produto de forma harmônica.</p>
+                    <div class="process-box">
+                        <strong>Processo Criativo:</strong> O layout foi estruturado simulando a página de um menu impresso tradicional. Utilizou-se uma malha editorial rigorosa para equilibrar a área de texto com o peso visual da fotografia da sobremesa. A tipografia utilizou <em>Playfair Display</em> para títulos e <em>Cormorant Garamond Light</em> para o corpo.
+                    </div>
+                </div>
+            </a>
+
+            <!-- PROJETO 2 -->
+            <a class="project-card project-link reverse" href="festival.html" aria-label="Abrir estudo de caso: Festival de Música de Primavera">
+                <div class="project-image-side">
+                    <img src="imagens/Design%20sem%20nome%20(7).png" alt="Convite Festival de Primavera">
+                </div>
+                <div class="project-text-side">
+                    <span class="project-tag">Identidade Eventos / Alura</span>
+                    <h2>Convite: Festival de Música de Primavera</h2>
+                    <p><strong>Contexto:</strong> Criação de um convite comemorativo institucional com estética leve, fluida e primaveril para um festival de música ao ar livre.</p>
+                    <div class="process-box">
+                        <strong>Processo Criativo:</strong> O foco central do projeto foi o equilíbrio entre o espaço em branco (respiro) e o elemento botânico. O convite foi diagramado utilizando a tipografia <em>Cormorant Garamond</em> em caixa alta para os títulos de cabeçalho, remetendo aos formatos de cartazes europeus clássicos.
+                    </div>
+                </div>
+            </a>
+
+            <!-- PROJETO 3 (PROJETO PESSOAL / EXTRA-CURRICULAR) -->
+            <section class="project-card">
+                <div class="project-image-side">
+                    <!-- Insira aqui o nome do arquivo de imagem do seu site de F1 -->
+                    <img src="imagens/certificados/image.png" alt="Layout do Site de Fórmula 1" onerror="this.src='imagens/marca_autoral.jpg'">
+                </div>
+                <div class="project-text-side">
+                    <span class="project-tag">Design Editorial Digital / Pessoal</span>
+                    <h2>UI Design: Interface de Alta Performance para Fórmula 1</h2>
+                    <p><strong>Contexto:</strong> Concepção visual e estruturação de uma interface web voltada para o universo do automobilismo, aplicando conceitos de design tradicional (alinhamento e blocos) na arquitetura de telas digitais.</p>
+                    <div class="process-box">
+                        <strong>Processo Criativo:</strong> O projeto explorou um grid geométrico assimétrico de forte impacto visual, simulando o dinamismo e a velocidade das pistas. A identidade cromática utilizou cores de alto contraste e a tipografia foi cuidadosamente selecionada para garantir legibilidade técnica, mantendo o respiro visual necessário para organizar tabelas de classificação, dados estatísticos e imagens em alta definição.
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- SEÇÃO DE CERTIFICADOS INTEGRADA -->
+        <div class="categoria">
+            <h2>Design</h2>
+            <div class="cards-certificados">
+                
+                <div class="certificado">
+                    <img src="imagens/Unidade-Design_-entenda-e-conheça-a-área-Alura.png" alt="Certificado Entenda e Conheça">
+                    <h3>Entenda e Conheça a Área de Design</h3>
+                    <p><strong>Instituição</strong><br>Alura</p>
+                    <p><strong>Categoria</strong><br>Design</p>
+                    <a href="imagens/Certificados/Unidade%20Design_%20entenda%20e%20conheça%20a%20área%20-%20Alura.pdf" target="_blank">
+                        Visualizar certificado →
+                    </a>
+                </div>
+
+                <div class="certificado">
+                    <img src="imagens/elementos%20fundamentais%20da%20linguagem%20visual.png" alt="Certificado Elementos Fundamentais">
+                    <h3>Design: Elementos Fundamentais da Linguagem Visual</h3>
+                    <p><strong>Instituição</strong><br>Alura</p>
+                    <p><strong>Categoria</strong><br>Design</p>
+                    <a href="imagens/Certificados/Elementos%20fundamentais%20da%20linguagem%20visual.pdf" target="_blank">
+                        Visualizar certificado →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
